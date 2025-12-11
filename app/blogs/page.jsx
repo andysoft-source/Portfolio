@@ -20,7 +20,7 @@ export default function BlogsPage() {
           {/* Blog CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://blog.yubrajkhatri.com.np"
+              href="https://blog.tonychan.com.np"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition"
@@ -30,7 +30,7 @@ export default function BlogsPage() {
             </a>
             
             <a
-              href="https://blog.yubrajkhatri.com.np/feed.xml"
+              href="https://blog.tonychan.com.np/feed.xml"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-900 dark:text-neutral-100 px-6 py-3 rounded-lg font-semibold transition"
@@ -52,7 +52,7 @@ export default function BlogsPage() {
               Get notified when I publish new posts about software development, tutorials, and tech insights.
             </p>
             <a
-              href="https://blog.yubrajkhatri.com.np"
+              href="https://blog.tonychan.com.np"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition"

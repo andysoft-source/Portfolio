@@ -30,7 +30,7 @@ export default function AboutPage() {
               
               <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
                 <p>
-                  Hi! I&apos;m <span className="font-semibold text-neutral-900 dark:text-neutral-100">Yubraj Khatri</span>, 
+                  Hi! I&apos;m <span className="font-semibold text-neutral-900 dark:text-neutral-100">Tony Chan</span>, 
                   a passionate software developer currently pursuing my Bachelor&apos;s in Computer Science with a 
                   Software Development concentration at <span className="font-semibold">SUNY Brockport</span>.
                 </p>

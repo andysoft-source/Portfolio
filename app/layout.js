@@ -19,7 +19,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Yubr@j Khatri",
+  title: "Tony Chan",
   description: "Creator of the software solutions",
 };
 

@@ -39,55 +39,47 @@ export function LinkPreviewDemoSecond() {
           break-words
         "
       >
-        <span>I am </span>
+        <span>I am a </span>
 
         <InlinePreview
-          url="https://res.cloudinary.com/dr040e5us/image/upload/v1733011951/pldzyrtmcmeju3tfbdan.jpg"
-          imageSrc="https://res.cloudinary.com/dr040e5us/image/upload/v1733011951/pldzyrtmcmeju3tfbdan.jpg"
+          url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1200&auto=format&fit=crop"
+          imageSrc="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1200&auto=format&fit=crop"
           className="font-bold bg-gradient-to-br from-purple-500 to-pink-500 ml-1"
         >
-          Yubraj
-        </InlinePreview>
-        <span> </span>
-        <InlinePreview
-          url="https://res.cloudinary.com/dr040e5us/image/upload/v1755941101/yubraj2_fzuphy.jpg"
-          imageSrc="https://res.cloudinary.com/dr040e5us/image/upload/v1755941101/yubraj2_fzuphy.jpg"
-          className="font-bold bg-gradient-to-br from-purple-500 to-pink-500"
-        >
-          Khatri
+          hybrid engineer
         </InlinePreview>
 
-        <span> Web Developer, App Developer, Bot gamer. I am learning </span>
+        <span> specializing in </span>
 
         <InlinePreview
-          url="https://images.unsplash.com/photo-1501731146954-20371d3b1afb?q=80&w=3540&auto=format&fit=crop"
-          imageSrc="https://images.unsplash.com/photo-1501731146954-20371d3b1afb?q=80&w=3540&auto=format&fit=crop"
+          url="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop"
+          imageSrc="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop"
           className="font-bold bg-gradient-to-br from-cyan-500 to-pink-500 ml-1"
         >
-          Guitar
+          Full-Stack development
         </InlinePreview>
 
         <span>, </span>
 
         <InlinePreview
-          url="https://www.instagram.com/001mycreativesite/"
-          imageSrc="https://res.cloudinary.com/dr040e5us/image/upload/v1733011951/pldzyrtmcmeju3tfbdan.jpg"
+          url="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
+          imageSrc="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
           className="font-bold bg-gradient-to-br from-pink-500 to-yellow-500 ml-1"
         >
-          Video Editing
+          AI integration
         </InlinePreview>
 
-        <span> and I watch </span>
+        <span>, and </span>
 
         <InlinePreview
-          url="https://www.youtube.com/watch?v=8wSpIuyX78Q"
-          imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnKZ9zj3EssUi2OpgIsR1hLwxE83P6WFHFaQ&s"
+          url="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
+          imageSrc="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
           className="font-bold bg-gradient-to-br from-purple-500 to-pink-500 ml-1"
         >
-          this song
+          automation
         </InlinePreview>
 
-        <span> twice a day.</span>
+        <span>. I build scalable web applications, design AI-powered workflows, and automate complex business processes end-to-end. My strength is combining engineering, AI reasoning, and system design to solve real business problems with speed and precision. If you need a developer who can ship fast and automate intelligently, I can deliver.</span>
       </div>
     </div>
   );

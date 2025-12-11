@@ -151,7 +151,7 @@ export default function BlogFeed({ showAll = false, maxPosts = 3 }) {
       {!showAll && posts.length >= maxPosts && (
         <div className="text-center pt-6">
           <a
-            href="https://blog.yubrajkhatri.com.np"
+            href="https://blog.tonychan.com.np"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition"

@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["three", "@react-three/fiber", "@react-three/drei"],
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "assets.aceternity.com" },
@@ -13,6 +12,7 @@ const nextConfig = {
       "www.youtube.com",
       "encrypted-tbn0.gstatic.com",
     ],
+    qualities: [50, 75],
   },
 };
 

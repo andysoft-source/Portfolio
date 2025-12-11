@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fi';
 
 export default function Page() {
-  const EMAIL = 'yubrajkhatri977@gmail.com'; // <-- put your real email here
+  const EMAIL = 'tonychan977@gmail.com'; // <-- put your real email here
 
   const [values, setValues] = useState({ name: '', email: '', subject: '', message: '', _hp: '' });
   const [errors, setErrors] = useState({});
@@ -143,7 +143,7 @@ export default function Page() {
                   name="name"
                   value={values.name}
                   onChange={onChange}
-                  placeholder="e.g., Yubraj Khatri"
+                  placeholder="e.g., Tony Chan"
                   className={`w-full rounded-lg border bg-white p-3 text-neutral-900 focus:border-blue-500 focus:outline-none
                               dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100
                               ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-neutral-300'}`}
@@ -258,7 +258,7 @@ export default function Page() {
                            hover:bg-black/5 dark:hover:bg-white/5 transition"
               >
                 <span className="inline-flex items-center gap-2"><FiGithub /> GitHub</span>
-                <span className="text-xs opacity-60">/Yubraj977</span>
+                <span className="text-xs opacity-60">/TonyChan977</span>
               </LinkPreview>
 
               <LinkPreview
@@ -269,7 +269,7 @@ export default function Page() {
                            hover:bg-black/5 dark:hover:bg-white/5 transition"
               >
                 <span className="inline-flex items-center gap-2"><FiLinkedin /> LinkedIn</span>
-                <span className="text-xs opacity-60">@yubraj-khatri</span>
+                <span className="text-xs opacity-60">@tony-chan</span>
               </LinkPreview>
 
               <LinkPreview

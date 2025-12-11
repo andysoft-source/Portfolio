@@ -12,7 +12,7 @@ const testimonials = [
     company: "Taste of Nepal",
     image: "/testimonial1.jpg", // You'll need to add actual images
     rating: 5,
-    text: "Yubraj created an absolutely stunning website for our restaurant. His attention to detail and understanding of our cultural needs was exceptional. The site perfectly captures the essence of our Nepalese cuisine and has significantly increased our online presence.",
+    text: "Tony created an absolutely stunning website for our restaurant. His attention to detail and understanding of our cultural needs was exceptional. The site perfectly captures the essence of our Nepalese cuisine and has significantly increased our online presence.",
     project: "Restaurant Website Development",
     linkedin: "https://linkedin.com/in/example"
   },
@@ -23,7 +23,7 @@ const testimonials = [
     company: "TechFlow Solutions",
     image: "/testimonial2.jpg",
     rating: 5,
-    text: "Working with Yubraj was fantastic. He delivered our web application ahead of schedule and exceeded our expectations. His technical skills combined with excellent communication made the entire process smooth and enjoyable.",
+    text: "Working with Tony was fantastic. He delivered our web application ahead of schedule and exceeded our expectations. His technical skills combined with excellent communication made the entire process smooth and enjoyable.",
     project: "Web Application Development",
     github: "https://github.com/example"
   },
@@ -34,7 +34,7 @@ const testimonials = [
     company: "Himal Academy",
     image: "/testimonial3.jpg",
     rating: 5,
-    text: "Yubraj transformed our outdated school website into a modern, responsive platform that parents and students love. His understanding of educational needs and user experience design is impressive.",
+    text: "Tony transformed our outdated school website into a modern, responsive platform that parents and students love. His understanding of educational needs and user experience design is impressive.",
     project: "Educational Website Redesign",
     linkedin: "https://linkedin.com/in/example"
   },
@@ -45,7 +45,7 @@ const testimonials = [
     company: "Digital Innovations Inc.",
     image: "/testimonial4.jpg",
     rating: 5,
-    text: "Yubraj's mobile app development skills are top-notch. ArrayWall is beautifully designed and performs flawlessly across different devices. His attention to performance optimization and user experience is remarkable.",
+    text: "Tony's mobile app development skills are top-notch. ArrayWall is beautifully designed and performs flawlessly across different devices. His attention to performance optimization and user experience is remarkable.",
     project: "Mobile App Development",
     email: "alex@example.com"
   }

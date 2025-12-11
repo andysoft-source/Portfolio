@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   try {
     // Fetch RSS feed from your blog
-    const response = await fetch('https://blog.yubrajkhatri.com.np/feed.xml', {
+    const response = await fetch('https://blog.tonychan.com.np/feed.xml', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; Portfolio Blog Feed)'
       },
@@ -59,7 +59,7 @@ function parseRSSFeed(xmlText) {
       
       if (title && link) {
         // Fix incorrect domain from RSS feed
-        const correctedLink = link.replace('tailwind-nextjs-starter-blog.vercel.app', 'blog.yubrajkhatri.com.np');
+        const correctedLink = link.replace('tailwind-nextjs-starter-blog.vercel.app', 'blog.tonychan.com.np');
         
         console.log('Original link:', link);
         console.log('Corrected link:', correctedLink);
@@ -114,28 +114,52 @@ function extractSlugFromLink(link) {
 function getFallbackPosts() {
   return [
     {
-      title: "Code, Costs, and Consequences: Why Software Reliability is Non-Negotiable",
-      link: "https://blog.yubrajkhatri.com.np/blog/why-software-reliablity-matters-in-critical-systems",
-      description: "Buggy software can cost billions — and sometimes lives. Here's why every developer should care about rock-solid code.",
-      publishedAt: "2024-11-05T00:00:00.000Z",
-      slug: "why-software-reliablity-matters-in-critical-systems",
+      title: "Next.js + AI API Integration: Complete Guide to OpenAI GPT in Web Apps",
+      link: "https://blog.tonychan.com.np/blog/nextjs-ai-api-integration-openai-guide",
+      description: "Step-by-step tutorial on integrating OpenAI's GPT API into your Next.js application with authentication, streaming, and error handling.",
+      publishedAt: "2025-01-15T00:00:00.000Z",
+      slug: "nextjs-ai-api-integration-openai-guide",
       id: "fallback-1"
     },
     {
-      title: "Hosting a Docker Container Locally and on the Web",
-      link: "https://blog.yubrajkhatri.com.np/blog/Hosting-locally-own-server",
-      description: "Learn how to host Docker containers both locally and deploy them to the web for scalable applications.",
-      publishedAt: "2024-12-15T00:00:00.000Z",
-      slug: "Hosting-locally-own-server",
+      title: "Building AI Microservices with Python FastAPI: A Complete Workflow",
+      link: "https://blog.tonychan.com.np/blog/python-fastapi-ai-microservices-guide",
+      description: "Learn how to build scalable AI microservices using FastAPI, Docker, and modern deployment practices for production-ready applications.",
+      publishedAt: "2025-01-10T00:00:00.000Z",
+      slug: "python-fastapi-ai-microservices-guide",
       id: "fallback-2"
     },
     {
-      title: "Release of Tailwind Nextjs Starter Blog v2.0",
-      link: "https://blog.yubrajkhatri.com.np/blog/release-of-tailwind-nextjs-starter-blog-v2.0",
-      description: "Discover the new features and improvements in version 2.0 of the popular Tailwind Nextjs Starter Blog template.",
-      publishedAt: "2025-01-03T00:00:00.000Z",
-      slug: "release-of-tailwind-nextjs-starter-blog-v2.0",
+      title: "Business Process Automation: RPA vs AI Agents Comparison",
+      link: "https://blog.tonychan.com.np/blog/business-automation-rpa-vs-ai-agents",
+      description: "Comprehensive comparison of RPA and AI agents for business automation, including use cases, costs, and implementation strategies.",
+      publishedAt: "2025-01-05T00:00:00.000Z",
+      slug: "business-automation-rpa-vs-ai-agents",
       id: "fallback-3"
+    },
+    {
+      title: "React Real-time Data Processing: WebSocket + AI Prediction System",
+      link: "https://blog.tonychan.com.np/blog/react-websocket-ai-prediction-system",
+      description: "Build a real-time data processing system in React using WebSockets and AI predictions for live analytics and user insights.",
+      publishedAt: "2024-12-28T00:00:00.000Z",
+      slug: "react-websocket-ai-prediction-system",
+      id: "fallback-4"
+    },
+    {
+      title: "Docker AI Model Deployment Automation: From Development to Production",
+      link: "https://blog.tonychan.com.np/blog/docker-ai-model-deployment-automation",
+      description: "Complete guide to automating AI model deployment using Docker, CI/CD pipelines, and cloud services for seamless production workflows.",
+      publishedAt: "2024-12-20T00:00:00.000Z",
+      slug: "docker-ai-model-deployment-automation",
+      id: "fallback-5"
+    },
+    {
+      title: "LangChain Custom AI Workflows: Building Intelligent Automation",
+      link: "https://blog.tonychan.com.np/blog/langchain-custom-ai-workflows-automation",
+      description: "Create powerful AI workflows using LangChain for document processing, data analysis, and automated decision-making systems.",
+      publishedAt: "2024-12-15T00:00:00.000Z",
+      slug: "langchain-custom-ai-workflows-automation",
+      id: "fallback-6"
     }
   ];
 }

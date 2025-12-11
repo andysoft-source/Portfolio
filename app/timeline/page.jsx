@@ -24,7 +24,7 @@ const timeline = [
     title: 'ArrayWall Mobile App Launch', 
     desc: 'Published cross-platform wallpaper app built with React Native on both Play Store and App Store.', 
     icon: FiSmartphone,
-    url: 'https://arraywall.yubrajkhatri.com.np/',
+    url: 'https://arraywall.tonychan.com.np/',
     imageSrc: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop',
   },
   { 
@@ -48,7 +48,7 @@ const timeline = [
     title: 'YMSHub Movie Platform', 
     desc: 'Developed full-stack movie streaming platform with TMDB API integration and responsive design.', 
     icon: FiFilm,
-    url: 'https://ymshub.yubrajkhatri.com.np/',
+    url: 'https://ymshub.tonychan.com.np/',
     imageSrc: '/ymshub.png',
   },
   { 
@@ -74,7 +74,7 @@ const timeline = [
     title: 'FreeCodeCamp Certifications', 
     desc: 'Completed JavaScript Algorithms & Data Structures and Responsive Web Design certifications.', 
     icon: FiFeather,
-    url: 'https://www.freecodecamp.org/certification/Yubraj/responsive-web-design',
+    url: 'https://www.freecodecamp.org/certification/TonyChan/responsive-web-design',
     imageSrc: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop',
   },
   { 

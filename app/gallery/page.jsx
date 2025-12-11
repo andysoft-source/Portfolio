@@ -87,7 +87,7 @@ export default function GalleryPage() {
 
       {/* Tiny attribution (Unsplash guidelines) */}
       <p className="mt-6 text-center text-xs text-neutral-500 dark:text-neutral-400">
-        Photos from <a className="underline" href="https://unsplash.com/@yubraj00001" target="_blank" rel="noreferrer">@yubraj00001</a> on Unsplash.
+        Photos from <a className="underline" href="https://unsplash.com/@tonychan00001" target="_blank" rel="noreferrer">@tonychan00001</a> on Unsplash.
       </p>
     </div>
   );

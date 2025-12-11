@@ -10,7 +10,7 @@ export async function GET() {
   return new NextResponse(fileBuffer, {
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; filename="Yubraj_Khatri_CV.pdf"',
+      'Content-Disposition': 'attachment; filename="Tony_Chan_CV.pdf"',
     },
   });
 }
