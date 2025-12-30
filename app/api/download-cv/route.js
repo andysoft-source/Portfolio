@@ -36,55 +36,71 @@ export async function GET(request) {
     // Wait for content to be fully loaded
     await new Promise(resolve => setTimeout(resolve, 1000));
 
-    // Hide left panel and nav, show only resume content
-    await page.evaluate(() => {
-      // Hide left panel
-      const leftPanel = document.querySelector('div[class*="lg:w-\\[23%\\]"]');
-      if (leftPanel) leftPanel.style.display = 'none';
-      
-      // Hide nav
-      const nav = document.querySelector('nav');
-      if (nav) nav.style.display = 'none';
-      
-      // Make resume content full width
-      const resumeContent = document.querySelector('div.max-w-4xl.mx-auto');
-      if (resumeContent) {
-        resumeContent.style.maxWidth = '100%';
-        resumeContent.style.margin = '0 auto';
-      }
-      
-      // Adjust body and main container
-      const body = document.body;
-      if (body) {
-        body.style.margin = '0';
-        body.style.padding = '0';
-      }
-      
-      const mainContainer = document.querySelector('div.flex.lg\\:h-screen');
-      if (mainContainer) {
-        mainContainer.style.display = 'block';
-        mainContainer.style.height = 'auto';
-      }
-      
-      const mainContent = document.querySelector('div.flex-1.overflow-y-scroll');
-      if (mainContent) {
-        mainContent.style.width = '100%';
-        mainContent.style.overflow = 'visible';
-      }
-      
-      // Force print media query styles
-      const style = document.createElement('style');
-      style.textContent = `
+    // Inject CSS to hide layout elements and adjust resume content
+    await page.addStyleTag({
+      content: `
+        /* Hide left panel */
+        body > div.flex.lg\\:h-screen > div:first-child {
+          display: none !important;
+        }
+        
+        /* Hide nav */
+        nav {
+          display: none !important;
+        }
+        
+        /* Adjust main container */
+        body > div.flex.lg\\:h-screen {
+          display: block !important;
+          height: auto !important;
+        }
+        
+        /* Make main content full width */
+        body > div.flex.lg\\:h-screen > div.flex-1 {
+          overflow: visible !important;
+          width: 100% !important;
+        }
+        
+        /* Resume content full width */
+        div.max-w-4xl.mx-auto {
+          max-width: 100% !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+        }
+        
+        /* Ensure header layout - align contact info to bottom */
+        header > div.flex {
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: flex-end !important;
+          justify-content: space-between !important;
+        }
+        
+        header > div.flex > div:last-child {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: flex-end !important;
+          justify-content: flex-end !important;
+          align-self: flex-end !important;
+        }
+        
         @media print {
-          header > div {
+          header > div.flex {
             display: flex !important;
             flex-direction: row !important;
             align-items: flex-end !important;
             justify-content: space-between !important;
           }
+          
+          header > div.flex > div:last-child {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-end !important;
+            justify-content: flex-end !important;
+            align-self: flex-end !important;
+          }
         }
-      `;
-      document.head.appendChild(style);
+      `,
     });
 
     // Generate PDF with smaller margins for 2-page layout

@@ -89,8 +89,8 @@ export default function LeftPannel() {
               <span>LinkedIn</span>
             </a>
             <a
-              href={social.resume}
-              download
+              href={process.env.NODE_ENV === 'development' ? '/api/download-cv' : '/cv.pdf'}
+              download={process.env.NODE_ENV === 'production'}
               className="flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition w-full text-neutral-900 dark:text-neutral-100"
             >
               <FiDownload className="opacity-80 text-[16px] sm:text-[17px]" />
