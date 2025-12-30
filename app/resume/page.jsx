@@ -32,20 +32,20 @@ export default function ResumePage() {
       <div className="max-w-4xl mx-auto bg-white dark:bg-neutral-950 print:bg-white">
         {/* Header */}
         <header className="mb-8 print:mb-3 print:pb-2">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-4">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-4 print:flex-row print:items-end print:justify-between">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 print:text-3xl print:mb-1 text-neutral-900 dark:text-neutral-100">
                 {name}
               </h1>
-              <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 font-medium mb-2 print:text-base print:mb-1">
+              <p className="text-lg md:text-xl text-neutral-900 dark:text-neutral-100 font-medium mb-2 print:text-base print:mb-1">
                 {title}
               </p>
-              <div className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="flex items-center gap-2 text-sm print:text-xs text-neutral-600 dark:text-neutral-400">
                 <FiMapPin className="text-xs" />
                 <span>{location}</span>
               </div>
             </div>
-            <div className="flex flex-col items-end text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <div className="flex flex-col items-end text-sm print:text-xs text-neutral-700 dark:text-neutral-300 space-y-1 print:space-y-0.5">
               <div className="flex items-center gap-2">
                 <FiMail className="text-xs opacity-70" />
                 <a href={`mailto:${email}`} className="hover:underline">{email}</a>

@@ -71,6 +71,20 @@ export async function GET(request) {
         mainContent.style.width = '100%';
         mainContent.style.overflow = 'visible';
       }
+      
+      // Force print media query styles
+      const style = document.createElement('style');
+      style.textContent = `
+        @media print {
+          header > div {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: flex-end !important;
+            justify-content: space-between !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
     });
 
     // Generate PDF with smaller margins for 2-page layout
