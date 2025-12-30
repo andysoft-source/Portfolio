@@ -1,138 +1,328 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import React from 'react';
+import {
+  FiCode,
+  FiCpu,
+  FiZap,
+  FiDatabase,
+  FiCloud,
+  FiSmartphone,
+  FiLayers,
+  FiTool,
+  FiTrendingUp,
+  FiCheck,
+  FiBox,
+  FiServer,
+  FiGlobe,
+  FiPackage,
+  FiTerminal,
+  FiSettings,
+  FiLock,
+  FiMonitor,
+  FiFileText,
+  FiGitBranch,
+  FiActivity,
+  FiAward,
+  FiTarget,
+  FiUsers,
+  FiBook,
+} from 'react-icons/fi';
 
-const stack = {
-  Languages: [
-    { name: 'JavaScript', logo: '🟨', level: 'Advanced', years: '3+' },
-    { name: 'TypeScript', logo: '🔷', level: 'Intermediate', years: '2+' },
-    { name: 'Python', logo: '🐍', level: 'Intermediate', years: '2+' },
-    { name: 'Java', logo: '☕', level: 'Intermediate', years: '2+' },
-    { name: 'HTML5', logo: '📄', level: 'Advanced', years: '4+' },
-    { name: 'CSS3', logo: '🎨', level: 'Advanced', years: '4+' },
-  ],
-  'Frontend Frameworks': [
-    { name: 'React', logo: '⚛️', level: 'Advanced', years: '3+' },
-    { name: 'Next.js', logo: '🧭', level: 'Advanced', years: '2+' },
-    { name: 'Tailwind CSS', logo: '💨', level: 'Advanced', years: '3+' },
-    { name: 'Framer Motion', logo: '🎞️', level: 'Intermediate', years: '1+' },
-    { name: 'React Native', logo: '📱', level: 'Intermediate', years: '1+' },
-  ],
-  'Backend & Database': [
-    { name: 'Node.js', logo: '🟢', level: 'Intermediate', years: '2+' },
-    { name: 'Express.js', logo: '🚂', level: 'Intermediate', years: '2+' },
-    { name: 'MongoDB', logo: '🍃', level: 'Intermediate', years: '2+' },
-    { name: 'Supabase', logo: '🟢', level: 'Intermediate', years: '1+' },
-    { name: 'Firebase', logo: '🔥', level: 'Intermediate', years: '2+' },
-    { name: 'PostgreSQL', logo: '🐘', level: 'Beginner', years: '1+' },
-  ],
-  'Cloud & DevOps': [
-    { name: 'Vercel', logo: '▲', level: 'Advanced', years: '2+' },
-    { name: 'Netlify', logo: '🌐', level: 'Intermediate', years: '2+' },
-    { name: 'Cloudinary', logo: '☁️', level: 'Intermediate', years: '1+' },
-    { name: 'Git', logo: '🔧', level: 'Advanced', years: '3+' },
-    { name: 'GitHub Actions', logo: '⚙️', level: 'Beginner', years: '1+' },
-  ],
-  'Development Tools': [
-    { name: 'VSCode', logo: '🧠', level: 'Advanced', years: '4+' },
-    { name: 'Postman', logo: '📮', level: 'Intermediate', years: '2+' },
-    { name: 'Figma', logo: '🎨', level: 'Intermediate', years: '2+' },
-    { name: 'GitHub Copilot', logo: '🤖', level: 'Advanced', years: '1+' },
-    { name: 'iTerm2', logo: '💻', level: 'Intermediate', years: '2+' },
-    { name: 'Notion', logo: '📓', level: 'Advanced', years: '3+' },
-  ],
-  'Currently Learning': [
-    { name: 'Docker', logo: '🐳', level: 'Learning', years: '0.5+' },
-    { name: 'GraphQL', logo: '🧬', level: 'Learning', years: '0.5+' },
-    { name: 'Rust', logo: '🦀', level: 'Learning', years: '0.5+' },
-    { name: 'WebSockets', logo: '🔌', level: 'Learning', years: '0.5+' },
-    { name: 'AWS', logo: '☁️', level: 'Learning', years: '0.5+' },
-  ],
+// 스킬 이름에 맞는 아이콘 매핑
+const getSkillIcon = (skillName) => {
+  const iconMap = {
+    // Frameworks & Libraries
+    'Next.js': FiBox,
+    'React': FiCode,
+    'TypeScript': FiCode,
+    'JavaScript (ES6+)': FiCode,
+    'Node.js': FiServer,
+    'Express.js': FiServer,
+    'React Native': FiSmartphone,
+    'Expo': FiSmartphone,
+    'Framer Motion': FiZap,
+    'Tailwind CSS': FiMonitor,
+    'HTML5 / CSS3': FiCode,
+    
+    // AI & ML
+    'OpenAI API': FiCpu,
+    'LLM Integration': FiCpu,
+    'Prompt Engineering': FiCpu,
+    'AI Workflows': FiZap,
+    'LangChain': FiCpu,
+    'Data Pipeline Automation': FiActivity,
+    'FastAPI': FiServer,
+    'Python': FiCode,
+    
+    // APIs & Services
+    'REST APIs': FiGlobe,
+    'Next.js API Routes': FiServer,
+    'Authentication & Authorization': FiLock,
+    
+    // Mobile
+    'iOS Development': FiSmartphone,
+    'Android Development': FiSmartphone,
+    'App Store Publishing': FiPackage,
+    
+    // Tools & Platforms
+    'Git / GitHub': FiGitBranch,
+    'Vercel': FiCloud,
+    'Netlify': FiCloud,
+    'Docker': FiPackage,
+    'MongoDB': FiDatabase,
+    'Supabase': FiDatabase,
+    'Firebase': FiCloud,
+    'VS Code': FiCode,
+    'Figma': FiTool,
+    
+    // General
+    'Responsive Design': FiMonitor,
+    'Accessibility (WCAG)': FiAward,
+    'Database Design': FiDatabase,
+  };
+  
+  // 부분 매칭으로 찾기
+  for (const [key, icon] of Object.entries(iconMap)) {
+    if (skillName.includes(key) || key.includes(skillName)) {
+      return icon;
+    }
+  }
+  
+  // 기본 아이콘
+  return FiTool;
 };
+
+const skillCategories = [
+  {
+    id: 'fullstack',
+    title: 'Full-Stack Development',
+    icon: FiLayers,
+    description: 'End-to-end web application development',
+    skills: [
+      { name: 'Next.js', highlight: true },
+      { name: 'React', highlight: true },
+      { name: 'TypeScript', highlight: true },
+      { name: 'JavaScript (ES6+)', highlight: true },
+      { name: 'Node.js', highlight: true },
+      { name: 'Express.js', highlight: true },
+      { name: 'REST APIs', highlight: true },
+      { name: 'HTML5 / CSS3', highlight: true },
+      { name: 'Tailwind CSS', highlight: true },
+      { name: 'Framer Motion' },
+    ],
+  },
+  {
+    id: 'ai',
+    title: 'AI & Machine Learning',
+    icon: FiCpu,
+    description: 'AI integration and automation specialist',
+    skills: [
+      { name: 'OpenAI API', highlight: true },
+      { name: 'LLM Integration', highlight: true },
+      { name: 'Prompt Engineering', highlight: true },
+      { name: 'AI Workflows', highlight: true },
+      { name: 'LangChain', highlight: true },
+      { name: 'Data Pipeline Automation', highlight: true },
+      { name: 'FastAPI', highlight: true },
+      { name: 'Python' },
+    ],
+  },
+  {
+    id: 'frontend',
+    title: 'Frontend Technologies',
+    icon: FiCode,
+    description: 'Modern UI/UX development',
+    skills: [
+      { name: 'React', highlight: true },
+      { name: 'Next.js (App Router)', highlight: true },
+      { name: 'TypeScript', highlight: true },
+      { name: 'Tailwind CSS', highlight: true },
+      { name: 'Framer Motion', highlight: true },
+      { name: 'Responsive Design', highlight: true },
+      { name: 'Accessibility (WCAG)' },
+    ],
+  },
+  {
+    id: 'backend',
+    title: 'Backend & APIs',
+    icon: FiDatabase,
+    description: 'Server-side development and API design',
+    skills: [
+      { name: 'Node.js', highlight: true },
+      { name: 'Next.js API Routes', highlight: true },
+      { name: 'Express.js', highlight: true },
+      { name: 'FastAPI', highlight: true },
+      { name: 'REST APIs', highlight: true },
+      { name: 'Authentication & Authorization', highlight: true },
+      { name: 'Database Design' },
+    ],
+  },
+  {
+    id: 'mobile',
+    title: 'Mobile Development',
+    icon: FiSmartphone,
+    description: 'Cross-platform mobile applications',
+    skills: [
+      { name: 'React Native', highlight: true },
+      { name: 'Expo', highlight: true },
+      { name: 'iOS Development', highlight: true },
+      { name: 'Android Development', highlight: true },
+      { name: 'App Store Publishing' },
+    ],
+  },
+  {
+    id: 'tools',
+    title: 'Tools & Platforms',
+    icon: FiTool,
+    description: 'Development tools and cloud platforms',
+    skills: [
+      { name: 'Git / GitHub', highlight: true },
+      { name: 'Vercel', highlight: true },
+      { name: 'Netlify', highlight: true },
+      { name: 'Docker', highlight: true },
+      { name: 'MongoDB', highlight: true },
+      { name: 'Supabase', highlight: true },
+      { name: 'Firebase', highlight: true },
+      { name: 'VS Code', highlight: true },
+      { name: 'Figma' },
+    ],
+  },
+];
 
 export default function SkillsPage() {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9, rotateY: 10 }}
-      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="px-6 py-10 max-w-6xl mx-auto text-black dark:text-white"
-      style={{ perspective: 1000 }}
-    >
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold mb-4">🧱 My Skills</h1>
-        <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          Technologies, frameworks, and tools I use to build amazing digital experiences
-        </p>
-        
-        {/* Legend */}
-        <div className="flex justify-center gap-6 mt-6 flex-wrap">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="text-sm">Advanced</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <span className="text-sm">Intermediate</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-orange-500"></div>
-            <span className="text-sm">Beginner</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-            <span className="text-sm">Learning</span>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-blue-50/30 dark:from-neutral-950 dark:via-neutral-900 dark:to-blue-950/20 text-neutral-900 dark:text-neutral-100 px-4 sm:px-6 py-6 sm:py-10">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <header className="mb-12 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Skills & Expertise
+          </h1>
+        </header>
 
-      <div className="space-y-12">
-        {Object.entries(stack).map(([category, items]) => (
-          <motion.div
-            key={category}
-            initial={{ opacity: 0, y: 50, rotateX: 5 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className="text-2xl font-semibold mb-4 border-b pb-2 border-gray-300 dark:border-gray-700">
-              {category}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {items.map(({ name, logo, level, years }) => (
-                <motion.div
-                  key={name}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="group relative bg-white dark:bg-[#1c1c1c] border dark:border-white/10 rounded-xl p-5 shadow-md dark:shadow-lg flex items-center justify-center flex-col gap-3 transition-all duration-300"
-                >
-                  <div className="text-4xl group-hover:scale-125 transition-transform duration-300">
-                    {logo}
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm font-semibold">{name}</div>
-                    <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
-                      {level} • {years}
+        {/* Skills Sections - Vertical Layout */}
+        <div className="space-y-8 mb-12">
+          {skillCategories.map((category, index) => {
+            const Icon = category.icon;
+            const isEven = index % 2 === 0;
+            
+            return (
+              <section
+                key={category.id}
+                className={`relative overflow-hidden rounded-3xl border ${
+                  isEven 
+                    ? 'bg-gradient-to-br from-blue-50/50 to-purple-50/30 dark:from-blue-950/30 dark:to-purple-950/20 border-blue-200/50 dark:border-blue-800/30' 
+                    : 'bg-gradient-to-br from-purple-50/50 to-pink-50/30 dark:from-purple-950/30 dark:to-pink-950/20 border-purple-200/50 dark:border-purple-800/30'
+                }`}
+              >
+                <div className="p-8 md:p-10">
+                  {/* Section Header */}
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className={`p-4 rounded-2xl shadow-lg ${
+                        isEven 
+                          ? 'bg-gradient-to-br from-blue-500 to-blue-600' 
+                          : 'bg-gradient-to-br from-purple-500 to-pink-600'
+                      } text-white`}>
+                        <Icon className="text-2xl" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">
+                          {category.title}
+                        </h2>
+                        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                          {category.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Level indicator */}
-                  <div className="absolute top-2 right-2">
-                    <div className={`w-2 h-2 rounded-full ${
-                      level === 'Advanced' ? 'bg-green-500' :
-                      level === 'Intermediate' ? 'bg-yellow-500' :
-                      level === 'Beginner' ? 'bg-orange-500' :
-                      'bg-blue-500'
-                    }`} />
+                  {/* Skills Tags */}
+                  <div className="flex flex-wrap gap-3">
+                    {category.skills.map((skill, skillIndex) => {
+                      const SkillIcon = getSkillIcon(skill.name);
+                      return (
+                        <div
+                          key={skillIndex}
+                          className={`
+                            group flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm
+                            bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 
+                            border border-neutral-300 dark:border-neutral-700 
+                            hover:border-blue-400 dark:hover:border-blue-600 
+                            hover:bg-blue-50 dark:hover:bg-blue-950/20
+                            transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md
+                            ${isEven 
+                              ? 'hover:border-blue-400 dark:hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/20' 
+                              : 'hover:border-purple-400 dark:hover:border-purple-600 hover:bg-purple-50 dark:hover:bg-purple-950/20'
+                            }
+                          `}
+                        >
+                          <SkillIcon className={`text-base flex-shrink-0 ${
+                            isEven 
+                              ? 'text-blue-600 dark:text-blue-400' 
+                              : 'text-purple-600 dark:text-purple-400'
+                          }`} />
+                          <span>{skill.name}</span>
+                        </div>
+                      );
+                    })}
                   </div>
+                </div>
+              </section>
+            );
+          })}
+        </div>
 
-                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-all duration-300 bg-blue-400 dark:bg-blue-600 blur-xl z-[-1]" />
-                </motion.div>
-              ))}
+        {/* Additional Skills Section */}
+        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-50/50 via-pink-50/30 to-purple-50/30 dark:from-orange-950/30 dark:via-pink-950/20 dark:to-purple-950/20 border border-orange-200/50 dark:border-orange-800/30">
+          <div className="p-8 md:p-10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-600 text-white shadow-lg">
+                <FiTrendingUp className="text-2xl" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">
+                  Additional Expertise
+                </h2>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Complementary skills and methodologies
+                </p>
+              </div>
             </div>
-          </motion.div>
-        ))}
+            <div className="flex flex-wrap gap-3">
+              {[
+                'API Development',
+                'RESTful APIs',
+                'Responsive Design',
+                'Performance Optimization',
+                'SEO',
+                'Git Version Control',
+                'Agile Methodologies',
+                'Problem Solving',
+                'Code Review',
+                'Technical Documentation',
+                'Cross-Platform Development',
+                'Database Design',
+                'Cloud Deployment',
+                'CI/CD',
+                'Test-Driven Development',
+              ].map((skill, index) => {
+                const SkillIcon = getSkillIcon(skill);
+                return (
+                  <span
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium border border-neutral-300 dark:border-neutral-700 hover:border-orange-400 dark:hover:border-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:scale-105 transition-all duration-200 cursor-default shadow-sm hover:shadow-md"
+                  >
+                    <SkillIcon className="text-base text-orange-600 dark:text-orange-400 flex-shrink-0" />
+                    {skill}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        </section>
       </div>
-    </motion.div>
+    </div>
   );
 }
-

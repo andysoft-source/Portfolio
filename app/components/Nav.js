@@ -7,6 +7,7 @@ import clsx from 'clsx';
 // Filter nav items based on environment
 const getNavItems = () => {
   const items = [
+    { name: 'About', path: '/about' },
     { name: 'Skills', path: '/skills' },
     { name: 'Projects', path: '/projects' },
     { name: 'Contact', path: '/contact' },

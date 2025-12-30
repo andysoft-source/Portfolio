@@ -6,15 +6,15 @@ import emailjs from '@emailjs/browser';
 import {
   FiGithub, FiLinkedin, FiMail, FiSend, FiCopy, FiCheck, FiClock, FiUserCheck, FiAlertCircle
 } from 'react-icons/fi';
+import { PERSONAL_INFO } from '../constants/personalInfo';
 
 export default function Page() {
-  const EMAIL = 'tonychan977@gmail.com'; // <-- put your real email here
+  const { email, social, name } = PERSONAL_INFO;
 
   const [values, setValues] = useState({ name: '', email: '', subject: '', message: '', _hp: '' });
   const [errors, setErrors] = useState({});
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -63,54 +63,19 @@ export default function Page() {
     }
   };
 
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1400);
-    } catch {}
-  };
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 px-6 py-10">
-      <div className="mx-auto w-full max-w-5xl">
+    <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 px-4 sm:px-6 py-6 sm:py-10">
+      <div className="mx-auto w-full max-w-7xl">
         {/* Heading */}
-        <header className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block">
+        <header className="mb-12 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
             Contact Me
-            <span className="block h-[3px] w-24 mt-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
           </h1>
-          <p className="mt-3 text-neutral-600 dark:text-neutral-400">
-            Collaborations, projects, or just saying hi — my inbox is open.
-          </p>
         </header>
 
-        {/* Top row: Copy email + quick stats */}
-        <div className="mb-6 flex flex-wrap items-center gap-3">
-          <button
-            onClick={copyEmail}
-            className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 px-3.5 py-1.5 text-sm
-                       text-blue-600 hover:bg-blue-500/10 transition dark:text-blue-400 dark:border-blue-400/40"
-            aria-label="Copy email"
-          >
-            {copied ? <FiCheck /> : <FiCopy />}
-            {copied ? 'Copied' : EMAIL}
-          </button>
-
-          <div className="inline-flex items-center gap-2 rounded-full border border-neutral-300 px-3.5 py-1.5 text-sm
-                          text-neutral-700 dark:text-neutral-300 dark:border-neutral-700">
-            <FiClock /> Replies within 24h
-          </div>
-
-          <div className="inline-flex items-center gap-2 rounded-full border border-neutral-300 px-3.5 py-1.5 text-sm
-                          text-neutral-700 dark:text-neutral-300 dark:border-neutral-700">
-            <FiUserCheck /> Open to freelance & collabs
-          </div>
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left: Form card */}
+        {/* Form */}
+        <div className="max-w-2xl mx-auto">
           <form
             onSubmit={onSubmit}
             className="rounded-2xl border border-neutral-200/70 bg-white/80 backdrop-blur-sm p-5 shadow-sm
@@ -143,7 +108,7 @@ export default function Page() {
                   name="name"
                   value={values.name}
                   onChange={onChange}
-                  placeholder="e.g., Tony Chan"
+                  placeholder={`e.g., ${name}`}
                   className={`w-full rounded-lg border bg-white p-3 text-neutral-900 focus:border-blue-500 focus:outline-none
                               dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100
                               ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-neutral-300'}`}
@@ -236,63 +201,10 @@ export default function Page() {
               </button>
 
               <p className="mt-2 text-center text-xs opacity-70">
-                Prefer email? <a href={`mailto:${EMAIL}`} className="underline decoration-dotted">Write me directly</a>.
+                Prefer email? <a href={`mailto:${email}`} className="underline decoration-dotted">Write me directly</a>.
               </p>
             </div>
           </form>
-
-          {/* Right: Socials + LinkPreview buttons */}
-          <aside className="rounded-2xl border border-neutral-200/70 bg-white/60 backdrop-blur-sm p-5 shadow-sm
-                            dark:border-neutral-800 dark:bg-white/[0.03]">
-            <h2 className="text-lg font-semibold">Find me online</h2>
-            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Hover to preview — click to open.
-            </p>
-
-            <div className="mt-4 grid grid-cols-1 gap-3">
-              <LinkPreview
-                url="https://github.com/Yubraj977"
-                imageSrc="https://images.unsplash.com/photo-1629904853893-c2c8981a1cfe?q=80&w=1200&auto=format&fit=crop"
-                isStatic
-                className="flex items-center justify-between rounded-lg border border-neutral-300 dark:border-neutral-700 px-4 py-3
-                           hover:bg-black/5 dark:hover:bg-white/5 transition"
-              >
-                <span className="inline-flex items-center gap-2"><FiGithub /> GitHub</span>
-                <span className="text-xs opacity-60">/TonyChan977</span>
-              </LinkPreview>
-
-              <LinkPreview
-                url="https://linkedin.com/in/yubraj-khatri-155786243"
-                imageSrc="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop"
-                isStatic
-                className="flex items-center justify-between rounded-lg border border-neutral-300 dark:border-neutral-700 px-4 py-3
-                           hover:bg-black/5 dark:hover:bg-white/5 transition"
-              >
-                <span className="inline-flex items-center gap-2"><FiLinkedin /> LinkedIn</span>
-                <span className="text-xs opacity-60">@tony-chan</span>
-              </LinkPreview>
-
-              <LinkPreview
-                url={`mailto:${EMAIL}`}
-                imageSrc="https://images.unsplash.com/photo-1581091215360-1a1c91a3d658?q=80&w=1200&auto=format&fit=crop"
-                isStatic
-                className="flex items-center justify-between rounded-lg border border-neutral-300 dark:border-neutral-700 px-4 py-3
-                           hover:bg-black/5 dark:hover:bg-white/5 transition"
-              >
-                <span className="inline-flex items-center gap-2"><FiMail /> Email</span>
-                <span className="text-xs opacity-60">{EMAIL}</span>
-              </LinkPreview>
-            </div>
-
-            <div className="mt-6 rounded-lg border border-neutral-200 dark:border-neutral-800 p-4">
-              <h3 className="text-sm font-semibold">What works best</h3>
-              <ul className="mt-2 text-sm space-y-1 opacity-80">
-                <li>• Share your timeline & budget range if you have one.</li>
-                <li>• Links/screenshots help me reply faster.</li>
-                <li>• I’m UTC-4; async works great.</li>
-              </ul>
-            </div>
-          </aside>
         </div>
       </div>
     </div>

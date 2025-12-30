@@ -4,8 +4,8 @@ import { ExpandableCardDemo } from '@/app/components/Ancertenity/ExpandableCard'
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-6 py-10">
-      <div className="mx-auto w-full max-w-6xl">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-4 sm:px-6 py-6 sm:py-10">
+      <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
         <header className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
