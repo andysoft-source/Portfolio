@@ -219,23 +219,13 @@ export default function Page() {
                 )}
               </div>
 
-              <button
-                type="submit"
-                disabled={busy}
+              <a
+                href={`mailto:${email}?subject=${encodeURIComponent(values.subject || 'Contact Form Message')}&body=${encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`)}`}
                 className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white
-                           transition hover:bg-blue-500 disabled:opacity-60"
+                           transition hover:bg-blue-500"
               >
-                {busy ? (
-                  <>
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/60 border-t-transparent" />
-                    Sending…
-                  </>
-                ) : (
-                  <>
-                    <FiSend /> Send Message
-                  </>
-                )}
-              </button>
+                <FiSend /> Send Message
+              </a>
 
               <p className="mt-2 text-center text-xs opacity-70">
                 Prefer email? <a href={`mailto:${email}`} className="underline decoration-dotted">Write me directly</a>.
