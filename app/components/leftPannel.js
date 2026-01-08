@@ -87,14 +87,23 @@ export default function LeftPannel() {
               <FiLinkedin className="opacity-80 text-[16px] sm:text-[17px]" />
               <span>LinkedIn</span>
             </a>
-            <a
-              href={process.env.NODE_ENV === 'development' ? '/api/download-resume' : '/resume.pdf'}
-              download={process.env.NODE_ENV === 'production'}
+            <button
+              onClick={async () => {
+                try {
+                  const response = await fetch(social.resume);
+                  if (response.ok) {
+                    alert('Resume saved to public folder!');
+                  }
+                } catch (error) {
+                  console.error('Error:', error);
+                  alert('Failed to save resume');
+                }
+              }}
               className="flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition w-full text-neutral-900 dark:text-neutral-100"
             >
               <FiDownload className="opacity-80 text-[16px] sm:text-[17px]" />
               <span>Resume</span>
-            </a>
+            </button>
           </div>
 
           {/* Availability Status */}

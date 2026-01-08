@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer';
+import { writeFileSync } from 'fs';
+import { join } from 'path';
 import { PERSONAL_INFO } from '../../constants/personalInfo';
 
 export async function GET(request) {
@@ -39,6 +41,31 @@ export async function GET(request) {
     // Inject CSS to hide layout elements and adjust resume content
     await page.addStyleTag({
       content: `
+        /* Force light mode */
+        * {
+          color-scheme: light !important;
+        }
+        
+        html {
+          color-scheme: light !important;
+        }
+        
+        body {
+          background-color: white !important;
+          color: black !important;
+        }
+        
+        /* Override all dark mode styles */
+        .dark {
+          color-scheme: light !important;
+        }
+        
+        .dark * {
+          background-color: white !important;
+          color: black !important;
+          border-color: #e5e5e5 !important;
+        }
+        
         /* Hide left panel */
         body > div.flex.lg\\:h-screen > div:first-child {
           display: none !important;
@@ -53,12 +80,14 @@ export async function GET(request) {
         body > div.flex.lg\\:h-screen {
           display: block !important;
           height: auto !important;
+          background-color: white !important;
         }
         
         /* Make main content full width */
         body > div.flex.lg\\:h-screen > div.flex-1 {
           overflow: visible !important;
           width: 100% !important;
+          background-color: white !important;
         }
         
         /* Resume content full width */
@@ -66,6 +95,8 @@ export async function GET(request) {
           max-width: 100% !important;
           margin: 0 auto !important;
           padding: 0 !important;
+          background-color: white !important;
+          color: black !important;
         }
         
         /* Ensure header layout - align contact info to bottom */
@@ -85,6 +116,11 @@ export async function GET(request) {
         }
         
         @media print {
+          * {
+            background-color: white !important;
+            color: black !important;
+          }
+          
           header > div.flex {
             display: flex !important;
             flex-direction: row !important;
@@ -118,6 +154,18 @@ export async function GET(request) {
     await browser.close();
 
     const fileName = `${PERSONAL_INFO.name.replace(/\s+/g, '_')}_Resume.pdf`;
+
+    // Save to public folder in development mode
+    if (process.env.NODE_ENV === 'development') {
+      const publicPath = join(process.cwd(), 'public', fileName);
+      writeFileSync(publicPath, pdfBuffer);
+      console.log(`Resume saved to public folder: ${fileName}`);
+      
+      return NextResponse.json({ 
+        success: true, 
+        message: `Resume saved to public folder: ${fileName}` 
+      });
+    }
 
     return new NextResponse(pdfBuffer, {
       headers: {
