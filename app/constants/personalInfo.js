@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   phone: '+1 (785) 260-2480',
   social: {
     github: 'https://github.com/andysofthub',
-    linkedin: 'https://linkedin.com/in/andy-chan',
+    linkedin: 'https://www.linkedin.com/in/andy-chan9333',
     resume: process.env.NODE_ENV === 'development' ? '/api/download-cv' : '/Andy-Resume.pdf',
     portfolio: 'https://portfolio-andy-soft.vercel.app',
   },
