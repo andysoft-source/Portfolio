@@ -2,7 +2,7 @@
 export const PERSONAL_INFO = {
   name: 'Andy',
   title: 'Full-Stack Developer | AI Integration Specialist',
-  location: 'Taguig, National Capital Region, Philippines',
+  location: 'Seoul, South Korea',
   email: 'andysoft9333@outlook.com',
   phone: '+1 (785) 260-2480',
   social: {
