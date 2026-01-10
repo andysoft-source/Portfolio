@@ -8,7 +8,7 @@ export const PERSONAL_INFO = {
   social: {
     github: 'https://github.com/andysofthub',
     linkedin: 'https://linkedin.com/in/andy-chan',
-    resume: '/api/download-cv',
+    resume: process.env.NODE_ENV === 'development' ? '/api/download-cv' : '/Andy-Resume.pdf',
     portfolio: 'https://portfolio-andy-soft.vercel.app',
   },
 };

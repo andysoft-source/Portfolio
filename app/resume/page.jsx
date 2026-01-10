@@ -10,7 +10,7 @@ import { PERSONAL_INFO } from '../constants/personalInfo';
 
 export default function ResumePage() {
   const router = useRouter();
-  const { name, title, location, email, phone } = PERSONAL_INFO;
+  const { name, title, location, email, phone, social } = PERSONAL_INFO;
 
   // Redirect to skills page if not in development mode
   React.useEffect(() => {
@@ -56,15 +56,15 @@ export default function ResumePage() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs opacity-70">LinkedIn:</span>
-                <a href="https://linkedin.com/in/andy-chan" target="_blank" rel="noreferrer" className="hover:underline">linkedin.com/in/andy-chan</a>
+                <a href={social.linkedin} target="_blank" rel="noreferrer" className="hover:underline">{social.linkedin.replace('https://', '')}</a>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs opacity-70">GitHub:</span>
-                <a href="https://github.com/andychan93330" target="_blank" rel="noreferrer" className="hover:underline">github.com/andychan93330</a>
+                <a href={social.github} target="_blank" rel="noreferrer" className="hover:underline">{social.github.replace('https://', '')}</a>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs opacity-70">Portfolio:</span>
-                <a href="https://andychan.dev" target="_blank" rel="noreferrer" className="hover:underline">andychan.dev</a>
+                <a href={social.portfolio} target="_blank" rel="noreferrer" className="hover:underline">{social.portfolio.replace('https://', '')}</a>
               </div>
             </div>
           </div>

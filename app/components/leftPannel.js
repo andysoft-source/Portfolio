@@ -89,14 +89,22 @@ export default function LeftPannel() {
             </a>
             <button
               onClick={async () => {
-                try {
-                  const response = await fetch(social.resume);
-                  if (response.ok) {
-                    alert('Resume saved to public folder!');
+                if (process.env.NODE_ENV === 'development') {
+                  try {
+                    const response = await fetch(social.resume);
+                    if (response.ok) {
+                      alert('Resume saved to public folder!');
+                    }
+                  } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to save resume');
                   }
-                } catch (error) {
-                  console.error('Error:', error);
-                  alert('Failed to save resume');
+                } else {
+                  // Production mode - direct download
+                  const link = document.createElement('a');
+                  link.href = social.resume;
+                  link.download = 'Andy-Resume.pdf';
+                  link.click();
                 }
               }}
               className="flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition w-full text-neutral-900 dark:text-neutral-100"

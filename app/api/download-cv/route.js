@@ -153,7 +153,7 @@ export async function GET(request) {
 
     await browser.close();
 
-    const fileName = `${PERSONAL_INFO.name.replace(/\s+/g, '_')}_Resume.pdf`;
+    const fileName = `Andy-Resume.pdf`;
 
     // Save to public folder in development mode
     if (process.env.NODE_ENV === 'development') {
