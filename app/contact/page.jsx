@@ -9,7 +9,7 @@ import {
 import { PERSONAL_INFO } from '../constants/personalInfo';
 
 export default function Page() {
-  const { email, phone, location, social, name } = PERSONAL_INFO;
+  const { email, location, social, name } = PERSONAL_INFO;
 
   const [values, setValues] = useState({ name: '', email: '', subject: '', message: '', _hp: '' });
   const [errors, setErrors] = useState({});
@@ -75,7 +75,7 @@ export default function Page() {
         </header>
 
         {/* Contact Information */}
-        <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           <a
             href={`mailto:${email}`}
             className="flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all hover:shadow-md"
@@ -86,18 +86,6 @@ export default function Page() {
             <div className="text-center">
               <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">Email</div>
               <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 break-all">{email}</div>
-            </div>
-          </a>
-          <a
-            href={`tel:${phone.replace(/\s/g, '')}`}
-            className="flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all hover:shadow-md"
-          >
-            <div className="p-3 rounded-full bg-green-100 dark:bg-green-900/30">
-              <FiPhone className="text-2xl text-green-600 dark:text-green-400" />
-            </div>
-            <div className="text-center">
-              <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">Phone</div>
-              <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">{phone}</div>
             </div>
           </a>
           <div className="flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">

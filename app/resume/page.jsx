@@ -10,7 +10,7 @@ import { PERSONAL_INFO } from '../constants/personalInfo';
 
 export default function ResumePage() {
   const router = useRouter();
-  const { name, title, location, email, phone, social } = PERSONAL_INFO;
+  const { name, title, location, email, social } = PERSONAL_INFO;
 
   // Redirect to skills page if not in development mode
   React.useEffect(() => {
@@ -49,10 +49,6 @@ export default function ResumePage() {
               <div className="flex items-center gap-2">
                 <FiMail className="text-xs opacity-70" />
                 <a href={`mailto:${email}`} className="hover:underline">{email}</a>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs opacity-70">Phone:</span>
-                <a href={`tel:${phone.replace(/\s/g, '')}`} className="hover:underline">{phone}</a>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs opacity-70">LinkedIn:</span>
