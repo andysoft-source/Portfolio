@@ -75,28 +75,23 @@ export default function Page() {
         </header>
 
         {/* Contact Information */}
-        <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div className="mb-12 flex justify-center max-w-4xl mx-auto">
           <a
             href={`mailto:${email}`}
-            className="flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all hover:shadow-md"
+            className="group relative flex flex-col items-center gap-4 p-8 rounded-2xl border-2 border-neutral-200 dark:border-neutral-800 bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-950 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 hover:-translate-y-1"
           >
-            <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30">
-              <FiMail className="text-2xl text-blue-600 dark:text-blue-400" />
+            <div className="relative">
+              <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <div className="relative p-4 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 group-hover:from-blue-600 group-hover:to-purple-700 transition-all duration-300">
+                <FiMail className="text-3xl text-white" />
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">Email</div>
-              <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 break-all">{email}</div>
+              
+              <div className="text-lg font-bold text-neutral-900 dark:text-neutral-100 break-all group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{email}</div>
+              <div className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">Click to send an email</div>
             </div>
           </a>
-          <div className="flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-            <div className="p-3 rounded-full bg-purple-100 dark:bg-purple-900/30">
-              <FiMapPin className="text-2xl text-purple-600 dark:text-purple-400" />
-            </div>
-            <div className="text-center">
-              <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">Location</div>
-              <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">{location}</div>
-            </div>
-          </div>
         </div>
 
         {/* Form */}

@@ -1,8 +1,8 @@
 // Personal Information Constants
 export const PERSONAL_INFO = {
-  name: 'Junghyun(Andy) Lee',
+  name: 'Andy Lee',
   title: 'Full-Stack Developer | AI Integration Specialist',
-  location: 'Seoul, South Korea',
+  // location: 'Seoul, South Korea', // Hidden for privacy
   email: 'sweetsora@hotmail.com',
   phone: '+1 (785) 260-2480',
   social: {

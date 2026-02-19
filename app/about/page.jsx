@@ -18,10 +18,12 @@ export default function AboutPage() {
           <p className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300 font-medium mb-6">
             {title}
           </p>
-          <div className="flex items-center justify-center gap-2 text-neutral-600 dark:text-neutral-400">
-            <FiMapPin className="text-sm" />
-            <span>{location}</span>
-          </div>
+          {location && (
+            <div className="flex items-center justify-center gap-2 text-neutral-600 dark:text-neutral-400">
+              <FiMapPin className="text-sm" />
+              <span>{location}</span>
+            </div>
+          )}
         </header>
 
         {/* Main Content */}
@@ -101,10 +103,10 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
-                <h3 className="text-xl font-semibold mb-3 text-neutral-900 dark:text-neutral-100">Performance Optimization</h3>
+                <h3 className="text-xl font-semibold mb-3 text-neutral-900 dark:text-neutral-100">SaaS Development</h3>
                 <p className="text-neutral-700 dark:text-neutral-300">
-                  Optimizing applications for speed, scalability, and user experience. Achieving high 
-                  Lighthouse scores and ensuring fast load times.
+                  Building scalable Software-as-a-Service platforms with subscription management, multi-tenancy, 
+                  and cloud infrastructure. Delivering enterprise-grade solutions.
                 </p>
               </div>
             </div>
@@ -131,7 +133,7 @@ export default function AboutPage() {
                     <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">AI Integration Specialist</h3>
                     <p className="text-neutral-700 dark:text-neutral-300 mb-3">
                       Leading AI-powered solutions development with OpenAI API, LLM integration, and advanced prompt engineering. 
-                      Building intelligent automation systems and AI-enhanced web applications.
+                      Building intelligent automation systems, AI-enhanced web applications, and scalable SaaS platforms with subscription management and multi-tenant architecture.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-300 text-xs font-medium">
@@ -141,7 +143,7 @@ export default function AboutPage() {
                         LLM Integration
                       </span>
                       <span className="px-3 py-1 rounded-full bg-pink-50 dark:bg-pink-950/20 text-pink-700 dark:text-pink-300 text-xs font-medium">
-                        Prompt Engineering
+                        SaaS Development
                       </span>
                     </div>
                   </div>

@@ -4,13 +4,12 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import {
   FiMail,
-  FiMapPin,
 } from 'react-icons/fi';
 import { PERSONAL_INFO } from '../constants/personalInfo';
 
 export default function ResumePage() {
   const router = useRouter();
-  const { name, title, location, email, social } = PERSONAL_INFO;
+  const { name, title, email, social } = PERSONAL_INFO;
 
   // Redirect to skills page if not in development mode
   React.useEffect(() => {
@@ -40,10 +39,6 @@ export default function ResumePage() {
               <p className="text-lg md:text-xl text-neutral-900 dark:text-neutral-100 font-medium mb-2 print:text-base print:mb-1">
                 {title}
               </p>
-              <div className="flex items-center gap-2 text-sm print:text-xs text-neutral-600 dark:text-neutral-400">
-                <FiMapPin className="text-xs" />
-                <span>{location}</span>
-              </div>
             </div>
             <div className="flex flex-col items-end text-sm print:text-xs text-neutral-700 dark:text-neutral-300 space-y-1 print:space-y-0.5">
               <div className="flex items-center gap-2">
@@ -73,17 +68,17 @@ export default function ResumePage() {
             Professional Summary
           </h2>
           <p className="text-sm leading-relaxed print:text-xs print:leading-snug text-neutral-700 dark:text-neutral-300">
-            Full-stack developer with 5+ years of professional experience building scalable web applications and AI-powered solutions.
+            Full-stack developer with 5+ years of professional experience building scalable web applications, SaaS platforms, and AI-powered solutions.
             KAIST Computer Science graduate specializing in Next.js, React, TypeScript, and OpenAI API integration. Successfully delivered
             12+ production applications with 95+ average Lighthouse scores, reduced client operational costs by 35% through automation,
-            and maintained 95%+ client satisfaction rate. Expert in modern JavaScript frameworks, cloud deployment, performance optimization,
+            and maintained 95%+ client satisfaction rate. Expert in modern JavaScript frameworks, cloud deployment, SaaS architecture,
             and full-stack development with proven track record in both startup and enterprise environments.
           </p>
         </section>
 
         {/* Education & Certifications */}
         <section className="mb-8 print:mb-3 print:pb-1">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 print:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 print:gap-4">
             <div>
               <h2 className="text-lg font-bold uppercase tracking-wide mb-4 print:text-base print:mb-2 print:pb-0.5 text-neutral-900 dark:text-neutral-100 border-b-2 border-neutral-900 dark:border-neutral-100 pb-1">
                 Education
@@ -137,26 +132,6 @@ export default function ResumePage() {
                 <div>
                   <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">CS Degree</h3>
                   <p className="text-sm text-neutral-700 dark:text-neutral-300">Computer Science Bachelor's</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-bold uppercase tracking-wide mb-4 print:text-base print:mb-2 print:pb-0.5 text-neutral-900 dark:text-neutral-100 border-b-2 border-neutral-900 dark:border-neutral-100 pb-1">
-                Language Skills
-              </h2>
-              <div className="space-y-3">
-                <div>
-                  <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">Korean</h3>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300">Native</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">English</h3>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300">Fluent (Professional)</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">Chinese</h3>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300">Conversational</p>
                 </div>
               </div>
             </div>
@@ -281,10 +256,10 @@ export default function ResumePage() {
               </div>
               <ul className="space-y-1.5 print:space-y-1 text-sm print:text-xs text-neutral-700 dark:text-neutral-300 ml-4 print:ml-3 list-disc">
                 <li>
-                  Developed production-ready full-stack application following RealWorld specification and best practices
+                  Developed production-ready full-stack SaaS application following RealWorld specification and best practices
                 </li>
                 <li>
-                  Implemented user authentication, CRUD operations, real-time updates, and comprehensive error handling
+                  Implemented user authentication, CRUD operations, real-time updates, and multi-tenant architecture for scalable SaaS deployment
                 </li>
                 <li>
                   Built responsive design with pagination and optimized database queries using Prisma ORM
