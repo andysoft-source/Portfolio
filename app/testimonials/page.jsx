@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiStar, FiLinkedin, FiGithub, FiMail } from 'react-icons/fi';
+import { FiStar, FiGithub, FiMail } from 'react-icons/fi';
 
 const testimonials = [
   {
@@ -14,7 +14,6 @@ const testimonials = [
     rating: 5,
     text: "Tony created an absolutely stunning website for our restaurant. His attention to detail and understanding of our cultural needs was exceptional. The site perfectly captures the essence of our Nepalese cuisine and has significantly increased our online presence.",
     project: "Restaurant Website Development",
-    linkedin: "https://linkedin.com/in/example"
   },
   {
     id: 2,
@@ -36,7 +35,6 @@ const testimonials = [
     rating: 5,
     text: "Tony transformed our outdated school website into a modern, responsive platform that parents and students love. His understanding of educational needs and user experience design is impressive.",
     project: "Educational Website Redesign",
-    linkedin: "https://linkedin.com/in/example"
   },
   {
     id: 4,
@@ -144,12 +142,6 @@ export default function TestimonialsPage() {
 
                 {/* Social Links */}
                 <div className="flex gap-2">
-                  {testimonial.linkedin && (
-                    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer"
-                       className="text-neutral-400 hover:text-blue-600 transition">
-                      <FiLinkedin className="text-sm" />
-                    </a>
-                  )}
                   {testimonial.github && (
                     <a href={testimonial.github} target="_blank" rel="noopener noreferrer"
                        className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition">

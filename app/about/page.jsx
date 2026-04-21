@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { PERSONAL_INFO } from '../constants/personalInfo';
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiDownload, FiBriefcase, FiCalendar } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiBriefcase, FiCalendar } from 'react-icons/fi';
 
 export default function AboutPage() {
   const { name, title, location, email, social } = PERSONAL_INFO;
+  const hasLinkedIn = Boolean(social.linkedin);
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-4 sm:px-6 py-6 sm:py-10">
@@ -291,15 +292,17 @@ export default function AboutPage() {
                 <FiGithub className="text-base" />
                 View GitHub
               </a>
-              <a
-                href={social.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-medium transition"
-              >
-                <FiLinkedin className="text-base" />
-                Connect on LinkedIn
-              </a>
+              {hasLinkedIn && (
+                <a
+                  href={social.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-medium transition"
+                >
+                  <FiLinkedin className="text-base" />
+                  Connect on LinkedIn
+                </a>
+              )}
             </div>
           </section>
         </div>

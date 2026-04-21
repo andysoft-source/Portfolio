@@ -10,6 +10,7 @@ import { PERSONAL_INFO } from '../constants/personalInfo';
 export default function ResumePage() {
   const router = useRouter();
   const { name, title, email, social } = PERSONAL_INFO;
+  const hasLinkedIn = Boolean(social.linkedin);
 
   // Redirect to skills page if not in development mode
   React.useEffect(() => {
@@ -45,10 +46,12 @@ export default function ResumePage() {
                 <FiMail className="text-xs opacity-70" />
                 <a href={`mailto:${email}`} className="hover:underline">{email}</a>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs opacity-70">LinkedIn:</span>
-                <a href={social.linkedin} target="_blank" rel="noreferrer" className="hover:underline">{social.linkedin.replace('https://', '')}</a>
-              </div>
+              {hasLinkedIn && (
+                <div className="flex items-center gap-2">
+                  <span className="text-xs opacity-70">LinkedIn:</span>
+                  <a href={social.linkedin} target="_blank" rel="noreferrer" className="hover:underline">{social.linkedin.replace('https://', '')}</a>
+                </div>
+              )}
               <div className="flex items-center gap-2">
                 <span className="text-xs opacity-70">GitHub:</span>
                 <a href={social.github} target="_blank" rel="noreferrer" className="hover:underline">{social.github.replace('https://', '')}</a>

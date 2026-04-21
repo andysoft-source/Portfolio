@@ -19,8 +19,7 @@ const Resume = () => {
           <p>Phone: {PERSONAL_INFO.phone}</p>
           <p>
             <a href={PERSONAL_INFO.social.portfolio} target="_blank" className="underline text-[#c8a27b]">Portfolio</a> |
-            <a href={PERSONAL_INFO.social.github} target="_blank" className="underline text-[#c8a27b]"> GitHub</a> |
-            <a href={PERSONAL_INFO.social.linkedin} target="_blank" className="underline text-[#c8a27b]"> LinkedIn</a>
+            <a href={PERSONAL_INFO.social.github} target="_blank" className="underline text-[#c8a27b]"> GitHub</a>
           </p>
         </section>
 

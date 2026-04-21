@@ -16,7 +16,7 @@ export function StructuredData() {
     sameAs: [
       PERSONAL_INFO.social.github,
       PERSONAL_INFO.social.linkedin,
-    ],
+    ].filter(Boolean),
     knowsAbout: [
       'Full-Stack Development',
       'AI Integration',

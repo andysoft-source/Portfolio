@@ -23,6 +23,7 @@ import { SplineErrorFilter } from "./SplineErrorFilter"; // Import the improved 
 
 export default function LeftPannel() {
   const { name, email, social } = PERSONAL_INFO;
+  const hasLinkedIn = Boolean(social.linkedin);
   
   return (
     <div className="bg-green300 h-full w-full flex flex-col lg:pl-10 lg:overflow-y-auto lg:no-scrollbar z-50 lg:max-h-screen">
@@ -78,15 +79,17 @@ export default function LeftPannel() {
               <FiGithub className="opacity-80 text-[16px] sm:text-[17px]" />
               <span>GitHub</span>
             </a>
-            <a
-              href={social.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition w-full text-neutral-900 dark:text-neutral-100"
-            >
-              <FiLinkedin className="opacity-80 text-[16px] sm:text-[17px]" />
-              <span>LinkedIn</span>
-            </a>
+            {hasLinkedIn && (
+              <a
+                href={social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition w-full text-neutral-900 dark:text-neutral-100"
+              >
+                <FiLinkedin className="opacity-80 text-[16px] sm:text-[17px]" />
+                <span>LinkedIn</span>
+              </a>
+            )}
             <button
               onClick={async () => {
                 if (process.env.NODE_ENV === 'development') {

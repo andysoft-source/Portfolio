@@ -7,9 +7,9 @@ export const PERSONAL_INFO = {
   phone: '+1 (785) 260-2480',
   social: {
     github: 'https://github.com/andysoft-source',
-    linkedin: 'https://www.linkedin.com/in/junghyun-lee-302a28392',
     resume: process.env.NODE_ENV === 'development' ? '/api/download-cv' : '/Andy-Resume.pdf',
     portfolio: 'https://portfolio-three-eta-89uh4sqi5c.vercel.app/',
   },
 };
 
+// https://www.linkedin.com/in/junghyun-lee-302a28392

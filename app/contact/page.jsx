@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { LinkPreview } from '@/app/components/Ancertenity/link-preview';
 import emailjs from '@emailjs/browser';
 import {
-  FiGithub, FiLinkedin, FiMail, FiSend, FiCopy, FiCheck, FiClock, FiUserCheck, FiAlertCircle, FiPhone, FiMapPin
+  FiGithub, FiMail, FiSend, FiCopy, FiCheck, FiClock, FiUserCheck, FiAlertCircle, FiPhone, FiMapPin
 } from 'react-icons/fi';
 import { PERSONAL_INFO } from '../constants/personalInfo';
 
